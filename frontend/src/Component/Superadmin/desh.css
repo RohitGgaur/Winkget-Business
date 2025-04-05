@@ -1,0 +1,503 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.btn-primary01{
+  background-color: #45a049;
+  width:90px;
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid rgb(204, 193, 193);
+}
+
+#photog{
+  width:330px;
+}
+.main-content {
+  flex: 1;
+  overflow-y: auto; /* Allow content to scroll */
+  height: 100vh;
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 100vh;
+  background-color: #111827;
+  color: white;
+  position: fixed;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #374151;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.collapse-btn {
+  padding: 4px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.collapse-btn:hover {
+  background-color: #374151;
+}
+
+.chevron-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.chevron-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Admin Profile */
+.admin-profile {
+  padding: 16px;
+  border-bottom: 1px solid #374151;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center;
+}
+
+.profiles-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px; 
+}
+
+ .profile-details p{ 
+  margin-bottom: -28px; /* Adjust spacing */
+ }
+
+.admin-name {
+  font-weight: 400;
+  color: white;
+}
+
+.admin-role {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  flex: 1;
+  padding: 16px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav-button:hover {
+  background-color: #374151;
+}
+
+.nav-button.active {
+  background-color: #374151;
+}
+
+
+
+.nav-label {
+  margin-left: 12px;
+}
+
+/* Logout Section */
+.logout-section {
+  padding: 16px;
+  border-top: 1px solid #374151;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #374151;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.card-value {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.content-card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset default styles */
+button {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.modal-overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content0 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 450px;  /* Set a fixed width */
+  height: 600px; /* Set a fixed height */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  overflow: hidden;
+}
+
+.modal-content0 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.form-grp {
+  width: 100%;
+  margin: 7px 0; /* Equal margin on top and bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-grp label {
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-grp input {
+  width: 80%; /* Reduced input size */
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* text-align: center;  */
+}
+.form-grp select {
+  width: 80%; /* Reduced input size */
+  padding: 6px;
+  border: 1px solid #ddd;
+  color: #888686;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* text-align: center;  */
+}
+
+.submit-button1 {
+  width: 80%;
+  padding: 8px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.submit-button1:hover {
+  background-color: #45a049;
+}
+
+
+
+.admin-cards-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Individual Admin Card */
+.admin-card {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  height: 60%;
+  height:140px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Admin Image */
+.admin-image {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Admin Info */
+.admin-info {
+  margin-top: 55px;
+  text-align: center;
+  flex: 1;
+}
+
+.admin-info h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.admin-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Admin Actions */
+.admin-actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.update, .delete {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.update {
+  background-color: #f0f0f0;
+}
+
+.update:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.delete {
+  background-color: rgba(255, 235, 235, 0.7);
+}
+
+.delete:hover {
+  background-color: rgba(255, 220, 220, 0.9);
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .admin-cards-container1 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  /* Default styles (for desktop) remain the same */
+
+@media screen and (max-width: 768px) {
+  .modal-content0 {
+    width: 90%;  /* Increase modal width for mobile */
+    max-width: 90%;
+    padding: 15px; /* Reduce padding */
+    border-radius: 6px; /* Slightly smaller border radius */
+  }
+
+  .form-grp input {
+    width: 100%; /* Full width input for better usability */
+    font-size: 14px; /* Reduce font size for mobile */
+    padding: 8px; /* Increase padding for better touch */
+  }
+
+  .submit-button1 {
+    width: 100%; /* Full width button */
+    font-size: 14px; /* Adjust font size */
+    padding: 10px;
+  }
+
+  .close-button {
+    font-size: 18px; /* Adjust close button size */
+    top: 8px;
+    right: 8px;
+  }
+  .form-controler0{
+    width:268px;
+  }
+
+  .form-grp {
+    margin: 8px 0; /* Adjust margin */
+  }
+}
+
+  
+}
+
+@media (max-width: 480px) {
+  .admin-cards-container1 {
+    grid-template-columns: 1fr;
+  }
+}

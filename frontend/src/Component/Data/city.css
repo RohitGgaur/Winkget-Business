@@ -1,0 +1,67 @@
+.auth-container1 {
+    width: 600px;
+    margin: 40px auto;
+    padding: 15px;
+   
+ 
+  }
+  
+  .auth-header h2 {
+    text-align: center;
+    font-size: 18px; /* Reduced font size */
+    margin-bottom: 15px;
+  }
+  
+  .auth-tab-nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .auth-tab-nav button {
+    padding: 6px;
+    width: 8%;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+  }
+  
+  .auth-tab-nav .auth-tab-active {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .auth-body {
+    text-align: center;
+  }
+  
+  .auth-form-group input {
+    width:  100%; /* Reduced width */
+    /* padding: 6px; Reduced padding */
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Reduced font size */
+  }
+  
+  .auth-submit-btn {
+    width: 50%; /* Reduced width */
+    padding: 8px; /* Reduced padding */
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Reduced font size */
+    margin-top: 8px;
+  }
+  
+  .auth-submit-btn:hover {
+    background: #0056b3;
+  }
+  

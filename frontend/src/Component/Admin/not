@@ -1,0 +1,56 @@
+<div className="modal-body">
+                        <div className="row">
+                            <div className="col mt-0">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{data.name}</h5>
+                                        <div className="row mt-2">
+                                            <div className="col"> {data.name}</div>
+                                            <div className="row mt-4">
+                                                <div className="col">
+                                                    <label>Email:
+                                                        <input
+                                                            type="email"
+                                                            name="email"
+                                                            value={data.email || ''}
+                                                            onChange={handleChange}
+                                                            style={{ width: "10rem", height: "30px", border: "1px solid black", borderRadius: "5px" }} />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row mt-4">
+                                            <div className="col">
+                                                <label>city:
+                                                    <input
+                                                        type="text"
+                                                        name="city"
+                                                        value={data.city || ''}
+                                                        onChange={handleChange}
+                                                        style={{ width: "17rem", height: "30px", border: "1px solid black", borderRadius: "5px" }} />
+                                                </label>
+                                            </div>
+                                            <div className="row mt-4">
+                                                <div className="col">
+                                                    <label htmlFor="position">Position</label>
+                                                    <select
+                                                        className="form-select"
+                                                        name="position"
+                                                        value={data.position || ""}
+                                                        onChange={handleChange}
+                                                        required
+                                                        style={{ width: "10rem", height: "40px", border: "1px solid black", borderRadius: "5px" }}
+                                                    >
+                                                        <option value="">Choose one</option>
+                                                        <option value="Head Admin">Head Admin</option>
+                                                        <option value="Ass. Admin">Ass. Admin</option>
+                                                        <option value="Admin">Admin</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>

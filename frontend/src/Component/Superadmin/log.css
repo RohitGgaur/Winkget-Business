@@ -1,0 +1,130 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FFFDD0;
+  padding: 20px;
+}
+
+.logo-container {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+.auth-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 360px;
+  margin: 20px 0;
+}
+
+.auth-heading {
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.forms-groups {
+  margin-bottom: 16px;
+}
+
+.form-labels {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-right: 90px;
+  margin-bottom: 6px;
+}
+
+.form-controls {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background: #f8f8f8;
+  color: #333;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: rgb(4, 133, 133);
+  box-shadow: 0 0 0 2px rgba(4, 133, 133, 0.2);
+  outline: none;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 24px;
+}
+
+.auth-links a {
+  color: rgb(4, 133, 133);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.auth-links a:hover {
+  color: rgb(3, 100, 100);
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: rgb(4, 133, 133);
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 8px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(3, 110, 110);
+}
+
+/* Toast notifications styling */
+.Toastify__toast {
+  border-radius: 8px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+  }
+}

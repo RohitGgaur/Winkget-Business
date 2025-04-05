@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500..800;1,300..800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.main img{
+    width:93%;
+    height:300px;
+    margin-left: 46px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.subcategory-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 3 items per row */
+    justify-content: space-between; /* Ensures equal left & right margins */
+    gap:19px; /* Adjust spacing between middle items */
+  margin-left: 35px;
+  grid-row-gap: 20px;
+    max-width: 900px; /* Adjust container width if needed */
+}
+
+.subcategory-item {
+    width: 120px; /* Set a fixed width */
+    height: 100px;
+    background-color: #d7cfcf;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    transition: background-color 0.2s;
+}
+
+.subcategory-item img {
+    width: 48px;
+    height: 42px;
+    margin-right:51px;
+    border-radius: 12px;
+    /* background-color: white; */
+    object-fit: contain;
+    /* margin-bottom: 10px; */
+}
+
+.subcategory-item span {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+.subcategory-item:hover {
+    background-color: #f0f0f0;
+}
+@media (max-width: 768px){
+    .main img{
+        width:90%;
+        height:250px;
+        margin-left: 19px;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
+    .subcategory-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 3 items per row */
+        justify-content: space-between; /* Ensures equal left & right margins */
+        gap:1px; /* Adjust spacing between middle items */
+        margin-left: 4px;
+      grid-row-gap: -180%;
+      height: 68vh;
+        max-width: 900px; /* Adjust container width if needed */
+    }
+    .subcategory-item {
+        width: 150px; /* Set a fixed width */
+        height: 140px;
+        background-color: #d7cfcf;
+        border-radius: 13px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        margin-right: 32px;
+        transition: background-color 0.2s;
+    }
+    .subcategory-item img {
+        width: 72px;
+        height: 65px;
+        margin-right: 22px;
+        border-radius: 12px;
+        /* background-color: white; */
+        object-fit: contain;
+        /* margin-bottom: 10px; */
+    }
+}

@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .app {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffff;
+  }
+  .vendor-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 2px;
+    justify-content: center;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    
+  }
+  
+  .vendor-card {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 1px solid #ddd;
+    font-family: "Montserrat", sans-serif;
+    width: 295px;  /* Fixed width instead of max-width */
+    height: 368px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.label1{
+  font-weight: 500;
+}
+.value1{
+  font-weight: 600;
+}
+  
+  .vendor-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    
+    overflow: hidden;
+  }
+  
+  .vendor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vendor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: -18px; 
+  }
+  .heading h3{
+    margin-right: 1040px;
+    margin-bottom: -12px;
+    margin-top: 32px;
+    color:rgb(83 82 82);
+    font-size: 23px;
+  }
+  .category {
+    font-size: 14px;
+    color: #888;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .business-names {
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+
+  }
+  
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0;
+  }
+  
+  .label {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .value {
+    font-size: 14px;
+    font-weight: 40%;
+    color: #888888;
+  }
+  
+  .know-more-btn {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid red;
+    background: transparent;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .know-more-btn:hover {
+    background: rgb(43, 129, 61);
+    color: white;
+  }
+  /* Header Styles */
+  .header {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: #1a73e8;
+  }
+  
+  .nav-items {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .nav-items button {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .nav-items input {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 600px;
+  }
+  
+  .login-btn {
+    background: #1a73e8 !important;
+    color: white;
+  }
+  
+  /* Banner Styles */
+  .banners {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto; 
+  }
+  
+  .banners img {
+    width: 93%;
+    /* margin-top: 13px; */
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  
+  /* Categories Grid */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14%;
+    margin-left: 122px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    width:142px;
+    height:150px;
+    cursor: pointer;
+  }
+  
+  .category-box {
+    width: 200%; /* Make sure it fits within the container */
+    height: 100%; 
+    background-color: #b3edc1;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column; /* Align items in a column (image on top, text below) */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text */
+    padding: 10px;
+    transition: background-color 0.2s;
+}
+.category-box span{
+ color:#ebf0f3
+}
+
+.category-box img {
+    width: 68px;  /* Adjust based on your design */
+    height: 62px;
+    border-radius: 8px;
+    background-color: white; /* Adjust based on your design */
+    object-fit: contain; /* Ensures the image fits well */
+    margin-bottom: 10px; /* Spacing between image and text */
+}
+
+.category-name {
+    font-size: 14px;  /* Adjust as needed */
+    color: #695c5c;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+  
+.category-box:hover {
+    background-color: #f0f0f0;
+}
+
+  
+  .category-box.view-more {
+    background-color: #e8f0fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a73e8;
+    font-size: 20px;
+  }
+  
+  .category-name {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Flutter Cards Grid */
+  .flutter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .flutter-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  
+  .card-header {
+    padding: 12px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-content p {
+    margin: 8px 0;
+    color: #666;
+  }
+  
+  /* Modal Styles */
+  .modal-overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .modal-content1 {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+  }
+  
+  .modal-header1 {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header1 button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .modal-grid1 {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    overflow-y: auto;
+    max-height: calc(80vh - 70px);
+  }
+  .card-section {
+    margin: 20px;
+  }
+  
+  .card-row {
+    margin-bottom: 20px;
+  }
+  
+  .card-row h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .card-item {
+    width: 18%;
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .card-box {
+    background: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .categories-grid,
+    .modal-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .flutter-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+ 
+
+  
+  @media (max-width: 480px) {
+    .categories-grid,
+    .modal-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .flutter-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .header {
+      flex-direction: column;
+      gap: 15px;
+    }
+    .category-item{
+      gap:8px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-items {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  
+ /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Login Button */
+  .auth-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .auth-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Modal Overlay */
+  .auth-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal Container */
+  .auth-modal-container {
+    background: white;
+    width: 450px;
+    /* height:340px; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Modal Header */
+  .auth-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .auth-modal-header h2 {
+    font-size: 18px;
+  }
+  
+  .auth-close-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Tab Navigation */
+  .auth-tab-nav {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+  }
+  
+  .auth-tab-nav button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .auth-tab-active {
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+  }
+  
+  /* Form Group */
+  .auth-form-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-form-group input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Submit Button */
+  .auth-submit-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .auth-submit-btn:hover {
+    background: #0056b3;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    background: #ddd;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  /* Category Box (Ensures Image Fits Inside) */
+.category-box1 {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensures image doesn't overflow */
+}
+
+/* Image Styling (Ensures it fits properly inside the box) */
+/* .category-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the box without distortion */
+  /* border-radius: 10px; Matches the rounded corners of the box */
+
+  .view-more {
+    background: #ff7f50;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .popup-content {
+    background: white;
+    padding: 45px;
+    border-radius: 12px;
+    width: auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .all-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .free-listing {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border:1px solid black;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border-radius: 5px;
+    min-width: 180px;
+    padding: 10px;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .banner img {
+      width: 93%;
+      height: 138px;
+      margin-top: 20px;
+      margin: 10px;
+      border-radius: 10px;
+  }
+  .auth-modal-container{
+    width: 321px;
+    height:430px;
+  }
+
+  .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+      margin-left: 25px;
+  }
+
+ 
+
+  .category-item {
+      padding: 4px;
+      gap: 8px;
+      display: flex;
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-box {
+      width: 165px;
+      height: 130px;
+  }
+
+  .category-box img {
+      width: 50px;
+      height: 50px;
+  }
+
+  /* Mobile vendor container with horizontal scroll */
+  .vendor-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      /* gap: 6px; */
+      padding: 10px 0;
+      margin: 0 5px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  .vendor-container::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+
+  .vendor-card {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: calc(47% - 3px); /* Two cards visible at once with gap */
+      min-width: 160px;
+      max-width: 188px;
+      height: 280px;
+      padding: 10px;
+      margin-right: 4px;
+      margin-left: 4px;
+  }
+
+  .vendor-img {
+      height: 100px;
+      margin-bottom: 5px;
+  }
+
+  .vendor-info {
+      gap: 2px;
+      margin-left: -1px;
+  }
+
+  .label, .value {
+      font-size: 12px;
+  }
+  .know-more-btn {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid red;
+    background: transparent;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .heading h3{
+   margin-right:20px;
+    width: 146px;
+    color:rgb(83 82 82);
+    font-size: 14px;
+  }
+}
+  
+
+

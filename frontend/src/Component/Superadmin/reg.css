@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Main container */
+.body {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: #FFFDD0; */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Logo container */
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.image img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Registration container */
+.register-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.container-main1 {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 450px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading */
+.heading {
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+.heading h4 {
+  color: rgb(64, 95, 95);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.heading h4:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: rgb(64, 95, 95);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Form */
+.form1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.form-group1 {
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.form-controls {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.form-controls:focus {
+  outline: none;
+  border-color: rgb(64, 95, 95);
+  box-shadow: 0 0 0 2px rgba(64, 95, 95, 0.2);
+  background-color: #fff;
+}
+
+.form-controls::placeholder {
+  color: #999;
+  font-weight: 300;
+}
+
+/* File upload styling */
+input[type="file"].form-controls {
+  padding: 10px;
+  height:45px;
+  background-color: #f9f9f9;
+}
+
+/* User link */
+.users{
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.user a {
+  color: rgb(64, 95, 95);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.user a:hover {
+  text-decoration: underline;
+  color: rgb(45, 66, 66);
+}
+
+/* Submit button */
+.btns-primarys {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: rgb(64, 95, 95);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btns-primarys:hover {
+  background-color: rgb(45, 66, 66);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btns-primarys:active {
+  transform: translateY(0);
+}
+
+/* Toast notifications */
+.Toastify__toast {
+  border-radius: 8px !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .image img {
+    width: 120px;
+    height: auto;
+  }
+  
+  .container-main1 {
+    width: 95%;
+    padding: 25px 15px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .heading h4 {
+    font-size: 24px;
+  }
+  
+  .form1 {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+  }
+  
+  .form-controls {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .btns-primarys {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 12px;
+  }
+  
+  .body {
+    justify-content: space-between;
+  }
+  
+  .register-container {
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

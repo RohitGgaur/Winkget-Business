@@ -1,0 +1,392 @@
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
+import { Link, useNavigate,useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import banner from "../../image/bannner.png"
+import "bootstrap-icons/font/bootstrap-icons.css";
+import '../Home/home.css';
+const Navbar = () => {
+    const [showPopup, setShowPopup] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("login");
+   const [categories,setCategories]=useState([]);
+  const [cities, setCities] = useState([]);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [city,setCity]=useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [profileimg,setProfileimg]=useState(null); 
+  const [imgprev,setImgprev]=useState(null);
+  const [selectedCity, setSelectedCity] = useState(localStorage.getItem('selectedCity') || '');
+
+  const handleCityChange = (e) => {
+      const city = e.target.value;
+      setSelectedCity(city);
+      console.log("City Selected:", city);
+      localStorage.setItem('selectedCity', city);
+      window.location.reload();
+  };
+  const imageChange=(e)=>{
+    const file=e.target.files[0];
+    setImgprev(URL.createObjectURL(file));
+    setProfileimg(file);
+  }
+  const uploadImage = async () => {
+    const data = new FormData();
+    data.append('file', profileimg);
+    data.append('upload_preset', 'eq2in9eu'); // Ensure this is correct
+    try {
+      let response = await fetch('https://api.cloudinary.com/v1_1/dw89rwftg/image/upload', {
+        method: 'POST',
+        body: data,
+      });
+  
+      if (!response.ok) {
+        throw new Error('Image upload failed');
+      }
+  
+      let urlData = await response.json();
+      console.log(urlData);
+      return urlData;
+    } catch (error) {
+      console.log('Image upload error:', error);
+      return null;
+    }
+  };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    const imageUrl = await uploadImage();
+
+    if (!imageUrl) {
+      toast.error("Image upload failed!");
+      
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/Register",
+        {
+          name,
+          email,
+          password,
+          city,
+          image: imageUrl,
+        }
+      );
+
+      toast.success("Registration Successful!");
+      setName("");
+      setEmail("");
+      setPassword("");
+      setCity("");
+      setProfileimg(null);
+    
+      setIsModalVisible(false);
+    } catch (err) {
+      toast.error("Registration failed! User may already exist.");
+      console.error("Registration failed:", err.response?.data || err.message);
+    }
+  };
+  
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/cities")
+      .then(response => {
+        console.log("API Data of city:", response.data);
+        
+        // Ensure cities is an array of objects with 'name' property
+        if (Array.isArray(response.data)) {
+          setCities(response.data);
+        } else {
+          console.error("Invalid API response:", response.data);
+          setCities([]);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching city:", error);
+      });
+  }, []);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/api/userlogin", {
+        email,
+        password,
+      });
+
+      toast.success("Login Successful!");
+      localStorage.setItem("token", response.data.token);
+      setIsModalVisible(false);
+    } catch (err) {
+      toast.error("Invalid credentials!");
+      console.error("Login failed:", err.response?.data || err.message);
+    }
+  };
+  // Fetch categories on component mount
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/categories")
+      .then((response) => {
+        console.log("Data:", response.data);
+        setCategories(response.data); // Assuming response.data is an array of objects
+      })
+      .catch((error) => {
+        console.error("Error fetching categories:", error);
+      });
+  }, []);
+  
+  return (
+   <>
+    <div className="header">
+        <div className="logo">Winkget Business</div>
+        <div className="nav-items">
+        {/* <select style={{width:"130px",height:"40px",border:"1px solid black",borderRadius:"4px"}}
+              value={selectedCity} 
+              onChange={(e) => setSelectedCity(e.target.value)}
+            >
+              <option value="">Select City</option>
+              {cities.map(city => (
+                <option key={city._id} value={city._id}>{city.name}</option>
+              ))}
+            </select> */}
+             <select value={selectedCity} onChange={handleCityChange}style={{width:"130px",height:"40px",border:"1px solid black",borderRadius:"4px"}}>
+          <option value="">Select City</option>
+          {cities.map(city => (
+            <option key={city._id} value={city.name}>{city.name}</option>
+          ))}
+        </select>
+          <input type="search" placeholder="Search" />
+          <button className="login-btn" onClick={() => setIsModalVisible(true)}>Login</button>
+        </div>
+        <div className="free-listing" 
+          onMouseEnter={() => setIsDropdownVisible(true)}
+          onMouseLeave={() => setIsDropdownVisible(false)}
+        >
+          <i className="bi bi-bar-chart-line"></i> Free Listing
+          {isDropdownVisible && (
+            <div className="dropdown-menu">
+              <a href="#">Post Your Business</a>
+              <a href="#">Manage Listings</a>
+              <a href="#">Premium Services</a>
+            </div>
+          )}
+        </div>
+
+        <div className="shop">
+        <i class="bi bi-cart">Shop</i></div>
+        <div className="dropdown" >
+                <a
+                    className="dropdown-toggle d-flex align-items-center hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuAvatar"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <img
+                        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                        className="rounded-circle"
+                        height="40"
+                        alt="Profile"
+                        loading="lazy"
+                    />
+                </a>
+                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                    <li>
+                        <a className="dropdown-item" href="#">My profile</a>
+                    </li>
+                    <li>
+                        <a className="dropdown-item" href="#">Settings</a>
+                    </li>
+                    <li>
+                        <a className="dropdown-item" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            {isModalVisible && (
+  <div className="auth-modal-overlay">
+    <div className="auth-modal-container">
+      {/* Modal Header */}
+      <div className="auth-modal-header">
+        <h2>User Account</h2>
+        <button onClick={() => setIsModalVisible(false)} className="auth-close-btn">×</button>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="auth-tab-nav">
+        <button 
+          className={selectedTab === "login" ? "auth-tab-active" : ""}
+          onClick={() => setSelectedTab("login")}
+        >
+          Login
+        </button>
+        <button 
+          className={selectedTab === "signup" ? "auth-tab-active" : ""}
+          onClick={() => setSelectedTab("signup")}
+        >
+          Sign Up
+        </button>
+      </div>
+
+      {/* Form Section */}
+      <div className="auth-modal-body">
+        {selectedTab === "login" ? (
+          <form className="auth-form-group" onSubmit={handleLogin}>
+            <input 
+              type="email" 
+              placeholder="Email"  
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+            />
+            <input 
+              type="password" 
+              placeholder="Password"   
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
+            <button type="submit" className="auth-submit-btn">Login</button>
+          </form>
+        ) : (
+          <form className="auth-form-group" onSubmit={handleSignup}>
+            <input 
+              type="text" 
+              placeholder="Full Name" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required 
+            />
+            <input 
+              type="email" 
+              placeholder="Email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+            />
+            <input 
+              type="password" 
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
+            <input 
+              type="text" 
+              placeholder="Enter City"  
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required 
+            />
+            <input 
+              type="file" 
+              placeholder="Upload image"
+              onChange={imageChange}  
+            />
+            <button type="submit" className="auth-submit-btn">Sign Up</button>
+          </form>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+      </div>
+   </>
+  );
+}
+
+export default Navbar;
+// {isModalVisible && (
+//   <div className="auth-modal-overlay">
+//     <div className="auth-modal-container">
+//       {/* Modal Header */}
+//       <div className="auth-modal-header">
+//         <h2>User Account</h2>
+//         <button onClick={() => setIsModalVisible(false)} className="auth-close-btn">×</button>
+//       </div>
+
+//       {/* Tab Navigation */}
+//       <div className="auth-tab-nav">
+//         <button 
+//           className={selectedTab === "login" ? "auth-tab-active" : ""}
+//           onClick={() => setSelectedTab("login")}
+//         >
+//           Login
+//         </button>
+//         <button 
+//           className={selectedTab === "signup" ? "auth-tab-active" : ""}
+//           onClick={() => setSelectedTab("signup")}
+//         >
+//           Sign Up
+//         </button>
+//       </div>
+
+//       {/* Form Section */}
+//       <div className="auth-modal-body">
+//         {selectedTab === "login" ? (
+//           <form className="auth-form-group" onSubmit={handleLogin}>
+//             <input 
+//               type="email" 
+//               placeholder="Email"  
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               required 
+//             />
+//             <input 
+//               type="password" 
+//               placeholder="Password"   
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               required 
+//             />
+//             <button type="submit" className="auth-submit-btn">Login</button>
+//           </form>
+//         ) : (
+//           <form className="auth-form-group" onSubmit={handleSignup}>
+//             <input 
+//               type="text" 
+//               placeholder="Full Name" 
+//               value={name}
+//               onChange={(e) => setName(e.target.value)}
+//               required 
+//             />
+//             <input 
+//               type="email" 
+//               placeholder="Email" 
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               required 
+//             />
+//             <input 
+//               type="password" 
+//               placeholder="Password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               required 
+//             />
+//             <input 
+//               type="text" 
+//               placeholder="Enter City"  
+//               value={city}
+//               onChange={(e) => setCity(e.target.value)}
+//               required 
+//             />
+//             <input 
+//               type="file" 
+//               placeholder="Upload image"
+//               onChange={imageChange}  
+//             />
+//             <button type="submit" className="auth-submit-btn">Sign Up</button>
+//           </form>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// )}

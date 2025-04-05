@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.testimonial-container {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+  
+.testimonial-form-card {
+  background: #ffffff;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Reduced width for better centering */
+  padding: 25px;
+  margin: 0 auto; /* Center the card */
+}
+  
+.form-title {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 20px;
+  text-align: center; /* Center the title */
+}
+  
+.form-subtitle {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+  text-align: center; /* Center the subtitle */
+}
+
+.form-gro {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form elements */
+}
+  
+.form-gro label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #777474;
+  align-self: flex-start; /* Align labels to the left */
+  width: 100%; /* Make labels take full width */
+}
+
+/* Styling for all input fields */
+.form-gro input[type="text"],
+.form-gro input[type="email"],
+.form-gro textarea {
+   width: 88%; /* Reduced width */
+  padding: 8px; /* Smaller padding */
+  border: 1px solid #ddd;
+  color:#666;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px; /* Reduced font size */
+}
+.form-gro label{
+  margin-left: 7%;
+}
+/* Styling for file input */
+.form-gro input[type="file"] {
+  width: 88%;
+  padding: 5px 0;
+  margin-bottom: 5px;
+}
+
+
+/* Preview image styling */
+.form-gro img {
+  margin-top: 10px;
+}
+
+/* Star rating fixes */
+.star-rating {
+  display: flex;
+  align-items: center;
+  width: 88%;
+  justify-content: flex-start;
+}
+  
+.star {
+  font-size: 50px; /* Slightly reduced size */
+  color: #ddd;
+  cursor: pointer;
+  margin-right: 5px;
+}
+  
+.star.filled {
+  color: #ffc107;
+}
+  
+.rating-text {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #777;
+}
+  
+/* Satisfaction scale fixes */
+.satisfaction-scale {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 250px;
+}
+  
+.satisfaction-icon {
+  font-size: 20px; /* Slightly reduced */
+  cursor: pointer;
+  opacity: 0.5;
+  transition: transform 0.2s, opacity 0.2s;
+}
+  
+.satisfaction-icon.selected {
+  opacity: 1;
+  transform: scale(1.2);
+}
+  
+/* Recommend options fixes */
+.recommend-options {
+  display: flex;
+  gap: 15px;
+  width: 20px;
+  margin-right:358px;
+  justify-content: flex-start; /* Align to the left */
+  /* margin-bottom: 10px; */
+}
+  
+.radio-label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+/* Fix radio buttons and labels alignment */
+.radio-label input {
+  margin-right: 2px;
+}
+  
+.radio-label span {
+  margin-left: 4px;
+  font-size: 14px;
+}
+  
+/* Submit button fixes */
+.submit-btns {
+  width: 88%;
+  height: 38px; /* Slightly reduced height */
+  color: white;
+  border-radius: 4px;
+  border: 1px solid rgb(197, 197, 197);
+  background-color: #219250;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left:36px;
+}
+
+.submit-btns:hover {
+  background-color: #1a7a40;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .testimonial-form-card {
+    padding: 15px;
+  }
+  
+  .form-gro input[type="text"],
+  .form-gro input[type="email"],
+  .form-gro textarea,
+  .form-gro input[type="file"],
+  .submit-btns {
+    width: 95%;
+  }
+}

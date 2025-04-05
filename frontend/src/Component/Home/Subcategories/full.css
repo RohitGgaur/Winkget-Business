@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 100%; /* Ensure full width on laptops */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    position: relative; /* Added for absolute positioning of logo */
+}
+.leftColumn, .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* More spacing between sections */
+}
+
+/* Header */
+.header0 {
+    text-align: center;
+    color: #a7a09b;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Full-Width Image */
+.fullWidthImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 60px; /* Increased to make room for the logo */
+}
+
+/* Business Logo - Repositioned */
+.businessLogo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #FFA500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    left: 15%;
+    transform: translateX(-50%);
+    top: 320px; /* Position it below the banner */
+    border: 3px solid #f5f5f5; /* Optional: adds a border around the logo */
+    z-index: 1; /* Ensures it appears above other elements */
+}
+
+.businessLogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Business Info - Adjusted for new logo position */
+.businessInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+    margin-top: -66px;
+    font-family: "Montserrat", sans-serif;
+    justify-content: space-between; /* Added to better distribute elements */
+    padding: 20px; /* Added padding since logo is no longer in the flex container */
+}
+
+/* Name and Category */
+.nameCategory {
+    flex: 1;
+    margin-left: 279px;
+    font-family: "Montserrat", sans-serif;
+}
+.businessname{
+    margin-bottom: 2px;
+}
+.nameCategory span{
+   margin-bottom: 20px;
+    margin-left: -3px;
+    margin-top: 0;
+
+}
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 10px;
+    /* margin-right: 320px; */
+    margin-bottom: 45px;
+}
+
+.button0 {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.location1 {
+    margin-top: -34px;
+    margin-left: -897px
+   
+}
+
+/* Main Content */
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%; /* Ensures it takes full width */
+}
+
+/* Adjusting Columns */
+.leftColumn  {
+    flex: 1;
+    width: 35%; /* Ensures full width */
+}
+.rightColumn{
+    width: 65%; 
+}
+
+/* Sections */
+.section {
+    background-color: #ffffff;
+  box-shadow:0 2px 4px #dbdfdb;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: -10px; /* Increase spacing between sections */
+    padding: 20px; 
+    padding: 5px 0;
+    width: 100%; /* Ensures sections take full width */
+    border: 1px solid rgb(240, 240, 240);
+}
+
+
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    text-align: left;
+  }
+  
+  .label {
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .value {
+    flex: 1;
+    text-align: right;
+  }
+  .Acontent {
+    display: block; /* Ensures proper spacing */
+    margin: 10px; /* Adjust as needed */
+    margin-top: -20px;
+    padding: 10px; /* Optional: Adds inner spacing */
+    line-height: 1.5; /* Improves readability */
+  }
+  
+
+.sectionTitle {
+    /* border-bottom: 1px solid #ccc; */
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+.listItem {
+    margin-bottom: 8px;
+}
+
+/* ----------- RESPONSIVE DESIGN FOR MOBILE ----------- */
+@media (max-width: 768px) {
+    /* Adjust Container Padding */
+    .container {
+        padding: 10px;
+        margin-left: 0;
+    }
+
+    /* Adjust Business Logo Positioning */
+    .businessLogo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        z-index: 2;
+    }
+
+    /* Adjust Full-Width Image */
+    .fullWidthImage {
+        height: 120px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 70px; /* Ensure logo fits well */
+    }
+
+    /* Ensure Business Info Stacks Properly */
+    .businessInfo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    /* Business Name & Category */
+    .nameCategory {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* Center and Resize Buttons */
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+
+    .button0 {
+        font-size: 14px;
+        padding: 8px 12px;
+        width: auto;
+    }
+
+   
+   
+
+    /* Ensure Columns Stack Correctly */
+    .mainContent {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        width: 100%;
+    }
+
+    /* Improve Section Spacing */
+    .section {
+        text-align: center;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    /* Align List Items */
+    .listItem {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .value {
+        color: #666;
+    }
+}
+
