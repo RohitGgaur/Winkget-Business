@@ -74,7 +74,7 @@ function AppContent() {
     <>
       {!hideNavbar && <Navbar />}
       <Routes>
-        <Route path="/" element={<Superadmin />} />
+        <Route path="/Home" element={<Superadmin />} />
         <Route path="/superlogin" element={<Superlogin />} />
         <Route path="/Adminlogin" element={<Admin />} />
         <Route path="/admindesk/:id" element={<Dashboard />} />
@@ -82,7 +82,7 @@ function AppContent() {
         <Route path="/admindesk/Franchise/:id" element={<Afranchise />} />
         <Route path="/admindesk/Dealership/:id" element={<Adealership />} /> */}
         <Route path="/admin-update/:id" element={<Adminupdate />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/subcategory/:id" element={<Subcategorys />} />
         <Route path="/subcategories/:id" element={<Subcategories />} />
         <Route path="/subcategory/:subcategory/:category" element={<SubcategoryDetails />} />
