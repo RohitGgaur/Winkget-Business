@@ -6,8 +6,14 @@ const User = require('./Schema/Superadmin.js');
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://winkget-frontend.onrender.com"]
+
+  origin: ["http://localhost:3000", "https://winkget-frontend.onrender.com/"]
+
+
 }));
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
 
 
 const superadmin=require("./Router/SuperA.js");
@@ -57,12 +63,8 @@ const feedback=require("./Router/Feedback.js");
 app.use('/api',feedback);
 const enquiry=require("./Router/Enquiry.js");
 app.use('/api',enquiry);
-const PORT = process.env.PORT || 8000;
-
-
-
-
-
-app.listen(PORT, () => {
-    console.log(`Connection successful on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, () => {
+//     console.log(`Connection successful on port ${PORT}`);
+// });
+module.exports = app;
