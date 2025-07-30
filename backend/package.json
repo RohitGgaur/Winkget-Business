@@ -4,7 +4,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-  "test": "jest"
+    "dev": "nodemon server.js",
+    "test": "cross-env NODE_ENV=test jest"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "validator": "^13.12.0"
   },
   "devDependencies": {
+    "cross-env": "^10.0.0",
     "jest": "^30.0.5",
     "supertest": "^7.1.4"
   }
