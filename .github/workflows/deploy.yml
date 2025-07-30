@@ -3,18 +3,26 @@ name: Deploy to Render
 on:
   push:
     branches:
-      - main   # ✅ Jab bhi main branch pe push hoga, deploy trigger hoga
+      - main
+      - dev
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set Deploy Hook URL
+        run: |
+          if [ "${GITHUB_REF##*/}" == "main" ]; then
+            echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK }}" >> $GITHUB_ENV
+          elif [ "${GITHUB_REF##*/}" == "dev" ]; then
+            echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK_STAGING }}" >> $GITHUB_ENV
+          fi
+
       - name: Trigger Render Deployment
         run: |
+          echo "Deploying branch: ${GITHUB_REF##*/}"
           curl "$RENDER_DEPLOY_HOOK"
-        env:
-          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
