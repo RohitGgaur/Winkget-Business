@@ -41,9 +41,8 @@ import Admins from "./Component/Superadmin/Admin.js";
 function AppContent() {
   const location = useLocation();
 
-  // Define route patterns where Navbar should NOT appear
+  // ✅ Routes jahan NAVBAR HIDE karna hai
   const hideNavbarRoutes = [
-    "/",
     "/Superlogin",
     "/Adminlogin",
     "/superdesk/:id",
@@ -65,33 +64,42 @@ function AppContent() {
     "/UserDeshboard/:userId/profile",
     "/admindesk/:id",
     "Enquiries/:adminCity",
-    
   ];
 
   const hideNavbar = hideNavbarRoutes.some((route) => matchPath(route, location.pathname));
 
   return (
     <>
+      {/* ✅ NAVBAR sirf un pages pe dikhayega jahan hideNavbar false hai */}
       {!hideNavbar && <Navbar />}
+
       <Routes>
-        <Route path="/Home" element={<Superadmin />} />
+        {/* ✅ Home page */}
+        <Route path="/" element={<Home />} />
+
+        {/* ✅ Superadmin (Navbar yahan hide rahega kyunki tum chahte ho) */}
+        <Route path="/home" element={<Superadmin />} />
+
+        {/* ✅ Auth Routes */}
         <Route path="/superlogin" element={<Superlogin />} />
         <Route path="/Adminlogin" element={<Admin />} />
+
+        {/* ✅ Admin Desk */}
         <Route path="/admindesk/:id" element={<Dashboard />} />
-        {/* <Route path="/admindesk/Business/:id" element={<Business />} />
-        <Route path="/admindesk/Franchise/:id" element={<Afranchise />} />
-        <Route path="/admindesk/Dealership/:id" element={<Adealership />} /> */}
         <Route path="/admin-update/:id" element={<Adminupdate />} />
-        <Route path="/" element={<Home />} />
+
+        {/* ✅ Home & Category Routes */}
         <Route path="/subcategory/:id" element={<Subcategorys />} />
         <Route path="/subcategories/:id" element={<Subcategories />} />
         <Route path="/subcategory/:subcategory/:category" element={<SubcategoryDetails />} />
         <Route path="/subcategory/details" element={<Fulldetails />} />
+
+        {/* ✅ Forms */}
         <Route path="/BusinessForm" element={<Businessform />} />
         <Route path="/FranchiseForm" element={<Franchiseform />} />
         <Route path="/DealershipForm" element={<Dealershipform />} />
-        
-        {/* User Dashboard with Nested Routes */}
+
+        {/* ✅ User Dashboard (Nested Routes) */}
         <Route path="/UserDeshboard/:userId" element={<Userdashboard />}>
           <Route index element={<Superdeskboard />} />
           <Route path="profile" element={<Profile />} />
@@ -101,28 +109,29 @@ function AppContent() {
           <Route path="tasks" element={<Tasks />} />
         </Route>
 
-        {/* Superadmin and Data Routes */}
+        {/* ✅ Superadmin Desk (Nested Routes) */}
         <Route path="/superdesk/:id" element={<Superdeskboard />}>
-  <Route path="admin" element={<Admins />} />
-  <Route path="vender" element={<Vender />} />
-  <Route path="Franchise" element={<Franchise />} />
-  <Route path="Dealership" element={<Dealership />} />
-  <Route path="Createcategory" element={<Createcategory />} />
-  <Route path="Subcategory" element={<Subcategory />} />
-  <Route path="city" element={<City />} />
-</Route>
-{/* admin and data Router */}
-<Route path="/admindesk/:id" element={<Dashboard />} >
-  <Route path="Business" element={<Vender />} />
-  <Route path="Franchise" element={<Franchise />} />
-  <Route path="Dealership" element={<Dealership />} />
-  
-</Route>
+          <Route path="admin" element={<Admins />} />
+          <Route path="vender" element={<Vender />} />
+          <Route path="Franchise" element={<Franchise />} />
+          <Route path="Dealership" element={<Dealership />} />
+          <Route path="Createcategory" element={<Createcategory />} />
+          <Route path="Subcategory" element={<Subcategory />} />
+          <Route path="city" element={<City />} />
+        </Route>
 
-        {/* Enquiries */}
+        {/* ✅ Admin Desk Nested Routes */}
+        <Route path="/admindesk/:id" element={<Dashboard />} >
+          <Route path="Business" element={<Vender />} />
+          <Route path="Franchise" element={<Franchise />} />
+          <Route path="Dealership" element={<Dealership />} />
+        </Route>
+
+        {/* ✅ Enquiries */}
         <Route path="/Enquiry" element={<Enquiry />} />
         <Route path="Enquiries/:adminCity" element={<Enquiries />} />
       </Routes>
+
       <ToastContainer position="top-center" autoClose={3000} />
     </>
   );
