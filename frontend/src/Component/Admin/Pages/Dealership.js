@@ -121,7 +121,7 @@ const Dealership = ({ closeModal }) => {
     }
   };
   useEffect(() => {
-    axios.get('http://localhost:8000/api/cities')
+    axios.get('https://winkget-backend.onrender.com/api/cities')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First City ID:", response.data[0]._id);
@@ -133,7 +133,7 @@ const Dealership = ({ closeModal }) => {
   }, []);
   // Fetch categories on component mount
   useEffect(() => {
-    axios.get('http://localhost:8000/api/categories')
+    axios.get('https://winkget-backend.onrender.com/api/categories')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First Category ID:", response.data[0]._id);
@@ -144,7 +144,7 @@ const Dealership = ({ closeModal }) => {
       });
   }, []);
   useEffect(() => {
-    axios.get('http://localhost:8000/api/cities')
+    axios.get('https://winkget-backend.onrender.com/api/cities')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First City ID:", response.data[0]._id);
@@ -156,7 +156,7 @@ const Dealership = ({ closeModal }) => {
   }, []);
   // Fetch categories on component mount
   useEffect(() => {
-    axios.get('http://localhost:8000/api/categories')
+    axios.get('https://winkget-backend.onrender.com/api/categories')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First Category ID:", response.data[0]._id);
@@ -171,7 +171,7 @@ const Dealership = ({ closeModal }) => {
   // Handle category change
   useEffect(() => {
     // Fetching categories only once
-    axios.get("http://localhost:8000/api/categories/tree")
+    axios.get("https://winkget-backend.onrender.com/api/categories/tree")
       .then(response => {
         console.log("Fetched Categories:", response.data);
         setCategories(response.data);
@@ -193,7 +193,7 @@ const Dealership = ({ closeModal }) => {
           console.log("Subcategories:", selectedCategory.subcategories);
         } else {
           // If no subcategories are available in the selected category, fetch them from the backend
-          const response = await axios.get(`http://localhost:8000/api/categories/${category}`);
+          const response = await axios.get(`https://winkget-backend.onrender.com/api/categories/${category}`);
           console.log("Fetched Subcategories:", response.data.children);
           setSubcategories(response.data.children || []);
         }
@@ -236,7 +236,7 @@ const Dealership = ({ closeModal }) => {
     if (!window.confirm('Are you sure you want to delete this franchise?')) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/Dealershipdelete/${did}`);
+      await axios.delete(`https://winkget-backend.onrender.com/api/Dealershipdelete/${did}`);
       alert('Dealership deleted successfully');
 
       // Update state to remove deleted franchise
@@ -261,7 +261,7 @@ const Dealership = ({ closeModal }) => {
     if (!id) return;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/superadmin/${id}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/superadmin/${id}`);
         setData(response.data);
         console.log(response.data.id);
         // const supid=response.data.id;
@@ -274,7 +274,7 @@ const Dealership = ({ closeModal }) => {
 
   const fetchVender = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/Dealershipget');
+      const response = await axios.get('https://winkget-backend.onrender.com/api/Dealershipget');
       console.log("Fetched dealership:", response.data);
 
       if (Array.isArray(response.data)) {
@@ -425,7 +425,7 @@ const Dealership = ({ closeModal }) => {
     console.log("Form Data being sent:", formData); // Debugging log
 
     try {
-      const response = await axios.post('http://localhost:8000/api/Registerd', formData);
+      const response = await axios.post('https://winkget-backend.onrender.com/api/Registerd', formData);
 
       if (response.data) {
         toast.success('Registration Successful!');

@@ -13,7 +13,7 @@ const Userdashboard = () => {
     if (!userId) return;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/userdata/${userId}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/userdata/${userId}`);
         setData(response.data);
         console.log(response.data);
         console.log(response.data._id);

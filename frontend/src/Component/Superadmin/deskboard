@@ -55,7 +55,7 @@ const locations = useLocation();
     if (!id) return;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/superadmin/${id}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/superadmin/${id}`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching admin data:', error);
@@ -66,7 +66,7 @@ const locations = useLocation();
 
   const fetchAdmins = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/adminget');
+      const response = await axios.get('https://winkget-backend.onrender.com/api/adminget');
       console.log("Fetched admins:", response.data);
 
       if (Array.isArray(response.data)) {
@@ -84,7 +84,7 @@ const locations = useLocation();
   const handleDelete = async (adminid) => {
     if (!window.confirm('Are you sure you want to delete this admin?')) return;
     try {
-        await axios.delete(`http://localhost:8000/api/delete/${adminid}`);
+        await axios.delete(`https://winkget-backend.onrender.com/api/delete/${adminid}`);
         alert('Admin deleted successfully');
         // Update UI after deletion
         setAdmins(admins.filter(admin => admin.adminid !== adminid)); 
@@ -135,7 +135,7 @@ const locations = useLocation();
   const handlSubmit=async(e)=>{
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/fill', {
+      const response = await axios.post('https://winkget-backend.onrender.com/api/fill', {
         category,
         subcategory,
         location,
@@ -169,7 +169,7 @@ const locations = useLocation();
     }
   
     try {
-      const response = await axios.post('http://localhost:8000/api/Register', {
+      const response = await axios.post('https://winkget-backend.onrender.com/api/Register', {
         name,
         position,
         city,

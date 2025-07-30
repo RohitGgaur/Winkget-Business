@@ -13,7 +13,7 @@ const Subcategory = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories/tree")
+      .get("https://winkget-backend.onrender.com/api/categories/tree")
       .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
@@ -65,7 +65,7 @@ const Subcategory = () => {
       }
 
       try {
-        const response = await axios.post("http://localhost:8000/api/categories", {
+        const response = await axios.post("https://winkget-backend.onrender.com/api/categories", {
           name: subCategory.name,
           icon: iconUrl,
           image: imageUrl,

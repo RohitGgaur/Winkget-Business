@@ -11,7 +11,7 @@ const Footer = () => {
   // Fetch cities
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/cities")
+      .get("https://winkget-backend.onrender.com/api/cities")
       .then((response) => setCities(response.data || []))
       .catch((error) => console.error("Error fetching cities:", error));
   }, []);
@@ -19,7 +19,7 @@ const Footer = () => {
   // Fetch categories
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories/tree")
+      .get("https://winkget-backend.onrender.com/api/categories/tree")
       .then((response) => {
         if (Array.isArray(response.data) && response.data.length > 0) {
           setCategories(response.data);

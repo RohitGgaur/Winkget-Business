@@ -16,7 +16,7 @@
       
 //       e.preventDefault();
 //       try {
-//         const response = await axios.post('http://localhost:8000/api/Adminlogin', {
+//         const response = await axios.post('https://winkget-backend.onrender.com/api/Adminlogin', {
 //           email,
 //           password,
 //         });
@@ -94,7 +94,7 @@ import "react-toastify/dist/ReactToastify.css";
 import img from "../../image/Winget.png"; // Import background image
 import "../Superadmin/log.css"; // Import CSS
 
-// // const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+// // const API_URL = process.env.REACT_APP_API_URL || "https://winkget-backend.onrender.com";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -107,7 +107,7 @@ const Login = () => {
       
       e.preventDefault();
       try {
-        const response = await axios.post('http://localhost:8000/api/Adminlogin', {
+        const response = await axios.post('https://winkget-backend.onrender.com/api/Adminlogin', {
           email,
           password,
         });

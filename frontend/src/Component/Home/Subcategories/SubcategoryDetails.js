@@ -20,13 +20,13 @@ const SubcategoryDetails = ({ propSelectedCity }) => {
             setLoading(true);
             try {
                 const requests = [
-                    axios.get("http://localhost:8000/api/DealershipgetByCategory", {
+                    axios.get("https://winkget-backend.onrender.com/api/DealershipgetByCategory", {
                         params: { category: subcategory, subcategory: category }
                     }),
-                    axios.get("http://localhost:8000/api/FranchisegetByCategory", {
+                    axios.get("https://winkget-backend.onrender.com/api/FranchisegetByCategory", {
                         params: { category: subcategory, subcategory: category }
                     }),
-                    axios.get("http://localhost:8000/api/BusinessgetByCategory", {
+                    axios.get("https://winkget-backend.onrender.com/api/BusinessgetByCategory", {
                         params: { category: subcategory, subcategory: category }
                     }),
                 ];

@@ -13,7 +13,7 @@ const City = () => {
 
   // Fetch all cities
   useEffect(() => {
-    axios.get('http://localhost:8000/api/cities')
+    axios.get('https://winkget-backend.onrender.com/api/cities')
       .then(response => {
         setCities(response.data);
       })
@@ -32,7 +32,7 @@ const City = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/city', { name: cityName });
+      const response = await axios.post('https://winkget-backend.onrender.com/api/city', { name: cityName });
 
       if (response.data) {
         toast.success('City added successfully!');
@@ -59,9 +59,9 @@ const City = () => {
     }
   
     try {
-      console.log(`API Request: http://localhost:8000/api/city/${selectedCity}/locality`);
+      console.log(`API Request: https://winkget-backend.onrender.com/api/city/${selectedCity}/locality`);
   
-      const response = await axios.post(`http://localhost:8000/api/city/${selectedCity}/locality`, {
+      const response = await axios.post(`https://winkget-backend.onrender.com/api/city/${selectedCity}/locality`, {
         name: localityName,
       });
   

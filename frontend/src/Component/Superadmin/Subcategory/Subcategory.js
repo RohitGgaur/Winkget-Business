@@ -14,7 +14,7 @@ const Subcategory = () => {
   useEffect(() => {
     const fetchSubcategories = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/categories/${id}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/categories/${id}`);
         console.log("Fetched Data:", response.data);
 
         if (response.data && response.data.children) {
@@ -74,7 +74,7 @@ const Subcategory = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/categories/${selectedSubcategory._id}`,
+        `https://winkget-backend.onrender.com/api/categories/${selectedSubcategory._id}`,
         formDataToSend
       );
 
@@ -103,7 +103,7 @@ const Subcategory = () => {
 
     if (window.confirm("Are you sure you want to delete this subcategory?")) {
       try {
-        await axios.delete(`http://localhost:8000/api/categories/${subcategoryId}`);
+        await axios.delete(`https://winkget-backend.onrender.com/api/categories/${subcategoryId}`);
         console.log("Subcategory Deleted");
 
         // ✅ Update UI after deletion

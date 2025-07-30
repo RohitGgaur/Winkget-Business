@@ -72,7 +72,7 @@ const Navbar = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/Register",
+        "https://winkget-backend.onrender.com/api/Register",
         {
           name,
           email,
@@ -97,7 +97,7 @@ const Navbar = () => {
   };
   
   useEffect(() => {
-    axios.get("http://localhost:8000/api/cities")
+    axios.get("https://winkget-backend.onrender.com/api/cities")
       .then(response => {
         console.log("API Data of city:", response.data);
         
@@ -116,7 +116,7 @@ const Navbar = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/userlogin", {
+      const response = await axios.post("https://winkget-backend.onrender.com/api/userlogin", {
         email,
         password,
       });
@@ -132,7 +132,7 @@ const Navbar = () => {
   // Fetch categories on component mount
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories")
+      .get("https://winkget-backend.onrender.com/api/categories")
       .then((response) => {
         console.log("Data:", response.data);
         setCategories(response.data); // Assuming response.data is an array of objects

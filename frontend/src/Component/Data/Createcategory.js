@@ -55,7 +55,7 @@ const Createcategory = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/api/categories', formData);
+      const response = await axios.post('https://winkget-backend.onrender.com/api/categories', formData);
 
       if (response.data) {
         toast.success("Category created successfully!");

@@ -40,7 +40,7 @@ const Enquiry = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/api/Regist", {
+      const response = await fetch("https://winkget-backend.onrender.com/api/Regist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

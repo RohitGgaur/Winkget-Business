@@ -9,7 +9,7 @@ const Categorypage = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/categories/${id}`);
+        const response = await fetch(`https://winkget-backend.onrender.com/api/categories/${id}`);
         const data = await response.json();
         console.log("lo data",data);
         setCategory(data);

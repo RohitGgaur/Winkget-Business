@@ -36,7 +36,7 @@ const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
   const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/Adminget/${id}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/Adminget/${id}`);
         setData(response.data);
         console.log(response.data)
         setAdminCity(response.data.city);
@@ -56,7 +56,7 @@ const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   }, [id]);
   const fetchVender = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/venderget');
+      const response = await axios.get('https://winkget-backend.onrender.com/api/venderget');
       console.log("Fetched vender:", response.data);
 
       if (Array.isArray(response.data)) {
@@ -128,7 +128,7 @@ const [isDashboardOpen, setIsDashboardOpen] = useState(false);
       }
 
       // Submit form data
-      const response = await axios.post('http://localhost:8000/api/vender', {
+      const response = await axios.post('https://winkget-backend.onrender.com/api/vender', {
         name,
         location,
         area,

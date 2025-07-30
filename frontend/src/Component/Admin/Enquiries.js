@@ -10,7 +10,7 @@ const Enquiries = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:8000/api/queries/${adminCity}`)
+        fetch(`https://winkget-backend.onrender.com/api/queries/${adminCity}`)
             .then(response => response.json())
             .then(data => {
                 setPendingQueries(data.pendingQueries);
@@ -28,7 +28,7 @@ const Enquiries = () => {
 
         if (resolutionMessage) {
             try {
-                await fetch(`http://localhost:8000/api/resolve-enquiry/${id}`, {
+                await fetch(`https://winkget-backend.onrender.com/api/resolve-enquiry/${id}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ resolutionMessage }),

@@ -28,7 +28,7 @@ const Home = () => {
   // Fetch Vendor Data
   const fetchVendors = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/venderget");
+      const response = await axios.get("https://winkget-backend.onrender.com/api/venderget");
       console.log("Fetched vendor details:", response.data);
 
       if (Array.isArray(response.data)) {
@@ -49,7 +49,7 @@ const Home = () => {
     const controller = new AbortController();
     const fetchFranchise = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/Franchiseget", { signal: controller.signal });
+        const response = await axios.get("https://winkget-backend.onrender.com/api/Franchiseget", { signal: controller.signal });
         console.log("Fetched Franchise details:", response.data);
         if (Array.isArray(response.data)) {
           setFranchise(response.data);
@@ -71,7 +71,7 @@ const Home = () => {
     const controller = new AbortController();
     const fetchDealership = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/Dealershipget", { signal: controller.signal });
+        const response = await axios.get("https://winkget-backend.onrender.com/api/Dealershipget", { signal: controller.signal });
         console.log("Fetched dealership details:", response.data);
         if (Array.isArray(response.data)) {
           setDealership(response.data);
@@ -92,7 +92,7 @@ const Home = () => {
   // category get
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories")
+      .get("https://winkget-backend.onrender.com/api/categories")
       .then((response) => {
         console.log("Data:", response.data);
         setCategorie(response.data); // Expected format: [{ name: "Electronics", subcategories: ["Mobiles", "Laptops"] }, ...]
@@ -110,7 +110,7 @@ const Home = () => {
     )
   );
   useEffect(() => {
-    axios.get("http://localhost:8000/api/cities")
+    axios.get("https://winkget-backend.onrender.com/api/cities")
       .then(response => {
         console.log("API Data of city:", response.data);
 
@@ -130,7 +130,7 @@ const Home = () => {
   // Fetch categories on component mount
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories")
+      .get("https://winkget-backend.onrender.com/api/categories")
       .then((response) => {
         console.log("Data:", response.data);
         setCategories(response.data); // Assuming response.data is an array of objects
@@ -143,7 +143,7 @@ const Home = () => {
   // Fetch categories in tree format
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories/tree")
+      .get("https://winkget-backend.onrender.com/api/categories/tree")
       .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);

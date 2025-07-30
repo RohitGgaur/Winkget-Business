@@ -10,7 +10,7 @@ const Update = ({ showModal, onClose, id }) => {
             const fetchData = async () => {
                 setLoading(true);
                 try {
-                    const response = await axios.get(`http://localhost:8000/api/Adminget/${id}`);
+                    const response = await axios.get(`https://winkget-backend.onrender.com/api/Adminget/${id}`);
                     if (response.data) {
                         setData(response.data);
                     } else {
@@ -35,7 +35,7 @@ const Update = ({ showModal, onClose, id }) => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.put(`http://localhost:8000/api/admin-update/${id}`, data);
+            const response = await axios.put(`https://winkget-backend.onrender.com/api/admin-update/${id}`, data);
             console.log('Student updated:', response.data);
             onClose(); // Close the modal after saving
         } catch (error) {

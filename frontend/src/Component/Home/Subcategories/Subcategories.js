@@ -13,7 +13,7 @@ const Subcategories = () => {
     useEffect(() => {
         const fetchSubcategories = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/categories/${id}`);
+                const response = await axios.get(`https://winkget-backend.onrender.com/api/categories/${id}`);
                 setSubcategories(response.data?.children || []);
                 setCategoryName(response.data?.name || "");
                 setImg(response.data?.image || "")

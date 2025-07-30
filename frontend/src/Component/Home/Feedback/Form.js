@@ -34,7 +34,7 @@ const Form = () => {
 
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/testimonials");
+        const response = await axios.get("https://winkget-backend.onrender.com/api/testimonials");
         setTestimonials(response.data);
       } catch (error) {
         console.error("Error fetching testimonials:", error);
@@ -106,7 +106,7 @@ const Form = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/api/testimonials", {
+      const response = await axios.post("https://winkget-backend.onrender.com/api/testimonials", {
         ...formData,
         image: imageUrl
       });

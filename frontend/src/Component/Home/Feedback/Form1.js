@@ -120,7 +120,7 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/api/testimonials", formData);
+      const response = await axios.post("https://winkget-backend.onrender.com/api/testimonials", formData);
       toast.success("Feedback Recived!");
       setFormData({
         name: '',

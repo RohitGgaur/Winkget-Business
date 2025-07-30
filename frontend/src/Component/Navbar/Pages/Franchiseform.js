@@ -122,7 +122,7 @@ const Franchise = ({ closeModal }) => {
     }
   };
   useEffect(() => {
-    axios.get('http://localhost:8000/api/cities')
+    axios.get('https://winkget-backend.onrender.com/api/cities')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First City ID:", response.data[0]._id);
@@ -134,7 +134,7 @@ const Franchise = ({ closeModal }) => {
   }, []);
   // Fetch categories on component mount
   useEffect(() => {
-    axios.get('http://localhost:8000/api/categories')
+    axios.get('https://winkget-backend.onrender.com/api/categories')
       .then(response => {
         console.log("Data:", response.data);
         console.log("First Category ID:", response.data[0]._id);
@@ -149,7 +149,7 @@ const Franchise = ({ closeModal }) => {
   // Handle category change
   useEffect(() => {
     // Fetching categories only once
-    axios.get("http://localhost:8000/api/categories/tree")
+    axios.get("https://winkget-backend.onrender.com/api/categories/tree")
       .then(response => {
         console.log("Fetched Categories:", response.data);
         setCategories(response.data);
@@ -171,7 +171,7 @@ const Franchise = ({ closeModal }) => {
           console.log("Subcategories:", selectedCategory.subcategories);
         } else {
           // If no subcategories are available in the selected category, fetch them from the backend
-          const response = await axios.get(`http://localhost:8000/api/categories/${category}`);
+          const response = await axios.get(`https://winkget-backend.onrender.com/api/categories/${category}`);
           console.log("Fetched Subcategories:", response.data.children);
           setSubcategories(response.data.children || []);
         }
@@ -217,7 +217,7 @@ const Franchise = ({ closeModal }) => {
     if (!window.confirm('Are you sure you want to delete this franchise?')) return;
 
     try {
-        await axios.delete(`http://localhost:8000/api/Franchisedelete/${fid}`);
+        await axios.delete(`https://winkget-backend.onrender.com/api/Franchisedelete/${fid}`);
         alert('Franchise deleted successfully');
 
         // Update state to remove deleted franchise
@@ -242,7 +242,7 @@ const Franchise = ({ closeModal }) => {
     if (!id) return;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/superadmin/${id}`);
+        const response = await axios.get(`https://winkget-backend.onrender.com/api/superadmin/${id}`);
         setData(response.data);
         console.log(response.data.id);
         // const supid=response.data.id;
@@ -255,7 +255,7 @@ const Franchise = ({ closeModal }) => {
 
   const fetchVender = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/Franchiseget');
+      const response = await axios.get('https://winkget-backend.onrender.com/api/Franchiseget');
       console.log("Fetched Franchise:", response.data);
 
       if (Array.isArray(response.data)) {
@@ -412,7 +412,7 @@ setImage('')
     console.log("Form Data being sent:", formData); // Debugging log
   
     try {
-      const response = await axios.post('http://localhost:8000/api/Registerf', formData);
+      const response = await axios.post('https://winkget-backend.onrender.com/api/Registerf', formData);
   
       if (response.data) {
         toast.success('Registration Successful!');

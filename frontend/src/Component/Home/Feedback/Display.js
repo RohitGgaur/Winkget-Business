@@ -13,7 +13,7 @@ const Display = () => {
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const response = await fetch("http://localhost:8000/api/testimonials");
+                const response = await fetch("https://winkget-backend.onrender.com/api/testimonials");
                 const data = await response.json();
                 setTestimonials(data.testimonials);
                 setStats(data.stats);
