@@ -5,7 +5,10 @@ const mongodb = require('./DB/mongo.js');
 const User = require('./Schema/Superadmin.js');
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://winkget-frontend.onrender.com"]
+}));
+
 
 const superadmin=require("./Router/SuperA.js");
 app.use('/api',superadmin);
