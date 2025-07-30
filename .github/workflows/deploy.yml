@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: Deploy Backend & Frontend
 
 on:
   push:
@@ -7,22 +7,30 @@ on:
       - dev
 
 jobs:
-  deploy:
+  deploy-backend:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set Deploy Hook URL
+      - uses: actions/checkout@v3
+      - name: Set Backend Hook
         run: |
           if [ "${GITHUB_REF##*/}" == "main" ]; then
             echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK }}" >> $GITHUB_ENV
-          elif [ "${GITHUB_REF##*/}" == "dev" ]; then
+          else
             echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK_STAGING }}" >> $GITHUB_ENV
           fi
+      - name: Deploy Backend
+        run: curl "$RENDER_DEPLOY_HOOK"
 
-      - name: Trigger Render Deployment
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Frontend Hook
         run: |
-          echo "Deploying branch: ${GITHUB_REF##*/}"
-          curl "$RENDER_DEPLOY_HOOK"
+          if [ "${GITHUB_REF##*/}" == "main" ]; then
+            echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}" >> $GITHUB_ENV
+          else
+            echo "RENDER_DEPLOY_HOOK=${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND_STAGING }}" >> $GITHUB_ENV
+          fi
+      - name: Deploy Frontend
+        run: curl "$RENDER_DEPLOY_HOOK"
